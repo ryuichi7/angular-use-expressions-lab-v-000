@@ -15,5 +15,10 @@ describe('Expressions Test', function() {
 		element(by.css('button')).click();
 
 		expect(element(by.css('h6')).getInnerHtml()).toEqual('You have 2 emails');
+
+		
+		var list = element.all(by.repeater('email in ctrl.emails'));	
+
+		expect(list.get(1).evaluate('email.name')).toBe("Bill Gates")
 	});
 });
